@@ -1,22 +1,25 @@
 <?php
-$diretorioEscolhido = new RecursiveDirectoryIterator('/home/user'); //Altere aqui. Informe o caminho para acessar a raiz o algum diretório específico que deseja contar o número e tamanho dos arquivos. Neste caso, eu uso "/home/user(nome do meu user)" pois o script foi executado em S.O. Linux.
+// Altere aqui. Informe o caminho para acessar a raiz ou algum diretório específico que deseja contar o número e tamanho dos arquivos:
+$diretorioEscolhido = new RecursiveDirectoryIterator('/home/user'); // Exemplo: '/home/user', onde 'user' é o nome do usuário no sistema operacional Linux. É importante está correto para funcionar!
+
 $iterator = new RecursiveIteratorIterator($diretorioEscolhido);
-$arquivos = new RegexIterator($iterator, '/^.+\.pdf$/i', RecursiveRegexIterator::GET_MATCH); // Substitua o "pdf" pelo formato de arquivo que deseja, por exemplo: "php", "mp3", "jpg", "png" ou "html" e lembre-se de manter o "." antes do nome da extensão.
+// Altere o tipo de arquivo que deseja pesquisar, substituindo "pdf" por "php", "mp3", "jpg", "png", "html", etc:
+$arquivos = new RegexIterator($iterator, '/^.+\.pdf$/i', RecursiveRegexIterator::GET_MATCH);
 
 $contadorDeArquivos = 0;
 $tamanhoTotal = 0;
 
 foreach ($arquivos as $arquivoInfo) {
     $contadorDeArquivos++;
-    // Acesso ao SplFileInfo para pegar o tamanho do arquivo
+    // Acesso ao SplFileInfo para pegar o tamanho do arquivo:
     $arquivo = new SplFileInfo($arquivoInfo[0]);
     $tamanhoTotal += $arquivo->getSize();
 }
 
-echo "Número de Arquivos encontrados: " . $contadorDeArquivos . "\n";
-echo "Tamanho total dos arquivos: " . formataUnidsDeTamanho($tamanhoTotal);
+echo "Número de Arquivos Encontrados: " . $contadorDeArquivos . "\n";
+echo "Tamanho Total dos Arquivos: " . formataUnidsDeTamanho($tamanhoTotal);
 
-//Função para facilitar a leitura do tamanho dos arquivos:
+// Função para facilitar a leitura do tamanho dos arquivos:
 function formataUnidsDeTamanho($bytes) {
     if ($bytes >= 1099511627776) {
         $bytes = number_format($bytes / 1099511627776, 2) . ' TB';
