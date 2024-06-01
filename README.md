@@ -1,4 +1,4 @@
-# Contador do Número de Arquivos Armazenados e o Tamanho que eles Ocupam através de um código em PHP (PHP File Counter and Size Calculator)
+# Contador do Número de Arquivos Armazenados e o Tamanho que Eles Ocupam Através de um Código em PHP Puro (PHP File Counter and Size Calculator)
 
 Este repositório contém um script PHP que itera recursivamente através de todos os arquivos PHP em um diretório específico, contando-os e calculando o tamanho total ocupado por eles.
 
