@@ -1,6 +1,6 @@
 <?php
 // Altere aqui. Informe o caminho para acessar a raiz ou algum diretório específico que deseja contar o número e tamanho dos arquivos:
-$diretorioEscolhido = new RecursiveDirectoryIterator('/home/user'); // Exemplo: '/home/user', onde 'user' é o nome do usuário no sistema operacional Linux. É importante está correto para funcionar!
+$diretorioEscolhido = new RecursiveDirectoryIterator('/home/user'); // Exemplo: '/home/user', onde 'user' é o nome do usuário no sistema operacional Linux. É importante está correto para funcionar! Se tiver em dificuldade de encontrar o caminho, execute um echo $_SERVER['DOCUMENT_ROOT'] em um arquivo PHP.
 
 $iterator = new RecursiveIteratorIterator($diretorioEscolhido);
 // Altere o tipo de arquivo que deseja pesquisar, substituindo "pdf" por "php", "mp3", "jpg", "png", "html", etc:
